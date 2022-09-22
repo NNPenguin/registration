@@ -16,12 +16,12 @@
 		$flag++;
 	endif;
 
+	if($flag!==0):
 	$_SESSION = array();
 		if (isset($_COOKIE[session_name()])):
 			setcookie(session_name(), '', time()-1000);
 		endif;
 		session_destroy();
-	if($flag!==0):
 		exit("正しくアクセスしてください");
 	endif;
 
