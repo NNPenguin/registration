@@ -13,37 +13,7 @@
 
 	mysqli_select_db($link,"login");
 	mysqli_set_charset($link,"utf8");
-//ユーザー名の変更
-/*
-    if(isset($_POST['newname'])):
-        if(preg_match("/^[a-zA-Z0-9]{2,20}$/",$_POST['newname'])):
-            $sql=mysqli_prepare($link,"SELECT `name` FROM `member` WHERE `name`=?");
-		    mysqli_stmt_bind_param($sql,'s',$_POST['newname']);
-		    $result=mysqli_stmt_execute($sql);
-		    if(!$result):
-			    mysqli_stmt_close($sql);
-			    mysqli_close($link);
-			    exit("サーバーエラー");
-		    endif;
-		    mysqli_stmt_store_result($sql);
-		    if(mysqli_stmt_num_rows($sql)!=0):
-			    $errors["newname"]="同じ名前が既に存在します";
-		    endif;
-		    mysqli_stmt_close($sql);
-		    $name=$_POST["newname"];
-        endif;
-    else:
-        $name=$_POST["name"];
-    endif;
-*/
-    if(is_string()):
-        echo "あり";
-    else:
-        echo "なし";
-    endif;
-
-
-
+    
     var_dump (is_string($_POST["newname"]));
     if(preg_match("/^[a-zA-Z0-9]{2,20}$/",$_POST['newname'])):
         $sql=mysqli_prepare($link,"SELECT `name` FROM `member` WHERE `name`=?");
@@ -63,16 +33,6 @@
     else:
         $name=$_POST["name"];
     endif;
-
-
-
-
-
-
-
-
-
-
 
     if(isset($_POST['newpass'])):
         if(preg_match("/^[a-zA-Z0-9]{6,12}$/",$_POST['newpass'])):
