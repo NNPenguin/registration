@@ -20,7 +20,7 @@
         $_SESSION=array();
         if(isset($_COOKIE[session_name()])):
             setcookie(session_name(),'',time()-1000);
-		endif;
+	endif;
         session_destroy();
         exit("正しくアクセスしてください。");
     endif;
